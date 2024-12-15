@@ -13,13 +13,13 @@ const Background = ({ pathname, showFullscreenMode }) => {
   const [backgroundClass, setBackgroundClass] = useState('')
 
   const IntroRoute = '/'
-  const RobexRoute = '/robe'
+  const ZoomlandRoute = '/zoomland'
   const ArmorRoute = '/armor'
   const DoubletRoute = '/doublet'
   const GreekStyleDressRoute = '/greek_style_dress'
 
   const AvailableContents = {
-    [RobexRoute]: RobeFrancaiseContent,
+    [ZoomlandRoute]: RobeFrancaiseContent,
     [ArmorRoute]: ArmorContent,
     [DoubletRoute]: DoubletContent,
     [GreekStyleDressRoute]: GreekStyleDressContent,

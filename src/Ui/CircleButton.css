@@ -8,3 +8,6 @@
 .CircleButton:hover {
   border-color: var(--accent);
 }
+.CircleButton:hover svg {
+  fill: var(--accent);
+}

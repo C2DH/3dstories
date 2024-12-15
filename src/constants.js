@@ -1,5 +1,5 @@
 export const IndexRoute = {
-  pathname: '/robe',
+  pathname: '/zoomland',
   isSmoothScrollActive: true
 }
 export const ArmorsRoute = {

@@ -8,7 +8,7 @@ import FullscreenModelPage from './Pages/FullscreenModelPage'
 import ContentManager from './components/ContentManager'
 import ViewportManager from './components/ViewportManager'
 import MenuFullPage from './Ui/MenuFullPage'
-import RobeFrancaisePage from './Pages/RobeFrancaisePage'
+import ZoomlandPage from './Pages/ZoomlandPage'
 import GreekStyleDressPage from './Pages/GreekStyleDressPage'
 import { useLocation } from 'react-router-dom'
 import DoubletPage from './Pages/DoubletPage'
@@ -69,7 +69,7 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={pathname} pathname={pathname}>
           <Route path="/" element={<IntroPage pathname={pathname} />}></Route>
-          <Route path="/robe" element={<RobeFrancaisePage pathname={pathname} scrollToTopEf={scrollToTopEf} />}></Route>
+          <Route path="/zoomland" element={<ZoomlandPage pathname={pathname} scrollToTopEf={scrollToTopEf} />}></Route>
           <Route path="/armor" element={<ArmorPage pathname={pathname} />}></Route>
           <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
           <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>

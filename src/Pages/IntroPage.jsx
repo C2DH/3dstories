@@ -26,7 +26,7 @@ const IntroPage = () => {
             i === 0 ? (
               <div key={d.path ?? i} className="intro relative">
                 <h1 dangerouslySetInnerHTML={{ __html: d.title }} />{' '}
-                <Link to="/robe">
+                <Link to="/zoomland">
                   <Button
                     className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
                     value="EXPLORE STORIES"

@@ -9,19 +9,23 @@ import { useCurrentSheet, PerspectiveCamera } from '@theatre/r3f'
 import { useScrollStore } from '../components/ScrollManager'
 import { val } from '@theatre/core'
 import { useMediaQuery } from 'react-responsive'
-import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
+import ZoomlandModel from '../modelComps/ZoomlandModel'
 import { editable as e } from '@theatre/r3f'
 import * as THREE from 'three'
 import Transition from '../Ui/Transition'
 import EffectComposerComp from '../Ui/EffectComposerComp'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+import useStore from '../GlobalState'
+import Lumberjack from '../modelComps/Lumberjack'
+import FullscreenModelPage from './FullscreenModelPage'
 
-const RobeFrancaise = () => {
+const Zoomland = () => {
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const menuLinkRef = useRef(useScrollStore.getState().menuLinkPosition)
   const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
   const sheet = useCurrentSheet()
   const sequenceLength = val(sheet.sequence.pointer.length)
+  const showFullscreenMode = useStore(state => state.showFullscreenMode)
 
   const [, apiTheatre] = useSpring(() => ({
     position: 0,
@@ -54,19 +58,29 @@ const RobeFrancaise = () => {
 
   return (
     <>
-      <ambientLight intensity={1} />
-      <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[2.5, 1.3, 1.3]} />
-      <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0.2, 8]} fov={45} near={0.1} far={70} />
-      <group position={isBigScreen ? [0, -1.4, 0] : [-1, -1.6, 0]} scale={isBigScreen ? 1 : 1}>
-        <e.group theatreKey="Robe">
-          <RobeFrancaiseModel position={[0, 0, 0]} rotation={0} />
-        </e.group>
+      {/* <ambientLight intensity={1} /> */}
+      {/* <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[2.5, 1.3, 1.3]} background={true} /> */}
+      <Environment
+        files={`${import.meta.env.BASE_URL || '/'}evening_road_01_puresky_1k.hdr`}
+        near={1}
+        far={1000}
+        background
+        blur={0.12}
+        inte
+      />
+
+      <PerspectiveCamera theatreKey="Camera" makeDefault fov={45} near={0.1} far={70} />
+
+      <group position={isBigScreen ? [0, -1.4, 0] : [0, -1.4, 0]} scale={isBigScreen ? 1 : 1}>
+        <ZoomlandModel position={[0, 1, 0]} rotation={[0, 0, 0]} scale={0.4} />
+        {showFullscreenMode === false ? <Lumberjack scale={0.001} position={[-0.3, 1.1, 2]} /> : null}
+        {/* <Lumberjack scale={0.001} position={[-0.3, 1.1, 2]} rotation={[0, 0, 0]} /> */}
       </group>
     </>
   )
 }
 
-const RobeFrancaisePage = ({ pathname }) => {
+const ZoomlandPage = ({ pathname }) => {
   const project = getProject('Robe Francaise Animation', {
     state: robeAnimation
   })
@@ -88,14 +102,33 @@ const RobeFrancaisePage = ({ pathname }) => {
           antialias: false,
           toneMapping: THREE.LinearToneMapping
         }}
+        shadows
       >
+        <directionalLight
+          intensity={1}
+          castShadow
+          color={'0xffe6b3'}
+          position={[5, 5, 10]}
+          shadow-mapSize={[1024, 1024]}
+          shadow-opacity={1}
+          // shadow-camera-near={0}
+          // shadow-camera-far={80}
+          // shadow-camera-top={50}
+          // shadow-camera-right={50}
+          // shadow-camera-bottom={-50}
+          // shadow-camera-left={-50}
+          // shadow-bias={-0.01}
+        />
+        <fog attach="fog" color="#e9c98f" near={5} far={30} />
         <EffectComposerComp />
         <SheetProvider sheet={sheet}>
-          <RobeFrancaise pathname={pathname} />
+          <>
+            <Zoomland pathname={pathname} />
+          </>
         </SheetProvider>
       </Canvas>
     </div>
   )
 }
 
-export default Transition(RobeFrancaisePage)
+export default Transition(ZoomlandPage)

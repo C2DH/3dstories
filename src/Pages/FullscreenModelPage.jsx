@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls } from '@react-three/drei'
 import Background from '../Ui/Background'
 import { useMediaQuery } from 'react-responsive'
-import RobeFrancaiseModel from '../modelComps/RobeFrancaiseModel'
+import ZoomlandModel from '../modelComps/ZoomlandModel'
 import GreekStyleDressModel from '../modelComps/GreekStyleDressModel'
 import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 import * as THREE from 'three'
@@ -16,6 +16,7 @@ import { useEffect } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
 import InfoPanel from '../Ui/InfoPanel'
 import Annotation from '../Ui/Annotation'
+import Lumberjack from '../modelComps/Lumberjack'
 
 const FullscreenModelPage = ({ pathname }) => {
   const showFullscreenMode = useStore(state => state.showFullscreenMode)
@@ -61,15 +62,54 @@ const FullscreenModelPage = ({ pathname }) => {
           antialias: false,
           toneMapping: THREE.LinearToneMapping
         }}
+        shadows
       >
-        <OrbitControls autoRotate={false} autoRotateSpeed={0.5} enableDamping={true} />
-        <ambientLight intensity={1} />
-        <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
-        {pathname === '/robe' ? (
+        {/* <ambientLight intensity={1} /> */}
+        {pathname !== '/zoomland' ? (
           <>
-            <RobeFrancaiseModel position={[0, -1.9, 0]} scale={1.2} rotation={0} />
-            <Annotation id={8} position={[-0.1, 2.2, -0.5]} />
-            <Annotation id={14} position={[-0.15, 0, 0.6]} />
+            <OrbitControls autoRotate={false} autoRotateSpeed={0.5} enableDamping={true} />
+            <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
+          </>
+        ) : null}
+        {pathname === '/zoomland' && showFullscreenMode === true ? (
+          <>
+            <OrbitControls
+              autoRotate={false}
+              autoRotateSpeed={0.5}
+              enableDamping={true}
+              target={[0, 0, 0]}
+              minAzimuthAngle={-Math.PI / 6}
+              maxAzimuthAngle={Math.PI / 1.5}
+              minPolarAngle={Math.PI / 4}
+              maxPolarAngle={Math.PI - Math.PI / 2}
+            />
+            <directionalLight
+              intensity={1}
+              castShadow
+              color={'0xffe6b3'}
+              position={[40, 40, 30]}
+              shadow-mapSize={[1024, 1024]}
+              // shadow-camera-near={0}
+              // shadow-camera-far={80}
+              // shadow-camera-top={80}
+              // shadow-camera-right={80}
+              // shadow-camera-bottom={-80}
+              // shadow-camera-left={-50}
+              // shadow-bias={-0.01}
+            />
+            <Environment
+              files={`${import.meta.env.BASE_URL || '/'}evening_road_01_puresky_1k.hdr`}
+              near={1}
+              far={1000}
+              background
+              blur={0.12}
+              inte
+            />
+            <fog attach="fog" color="#e9c98f" near={2} far={20} />
+            <ZoomlandModel position={[0, -1, 0]} scale={0.3} rotation={[0, 0, 0]} />
+            <Lumberjack scale={0.001} position={[-0.15, -0.93, 1.4]} />
+            <Annotation id={11} position={[0, 1.15, -2.6]} />
+            <Annotation id={6} position={[-0.15, -0.65, 1.55]} />
           </>
         ) : null}
         {pathname === '/armor' ? (
