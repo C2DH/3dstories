@@ -97,7 +97,7 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal, sc
             <Button
               onClick={findThisItem}
               className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
-              value={contents?.links?.[0]?.linkValue ? contents.links[0].linkValue : 'Database'}
+              value={contents?.links?.[0]?.linkValue ? contents.links[0].linkValue : 'Play game'}
             />
           ) : null}
           {contents?.links?.[1] ? (
@@ -107,14 +107,14 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal, sc
               value={contents?.links?.[1]?.linkValue ? contents.links[1].linkValue : 'Database'}
             />
           ) : null}
-          {pathname !== '/' ? (
+          {/* {pathname !== '/' ? (
             <Button
               onClick={flashionPlatform}
               type="secondary"
               className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
               value="Data visualization"
             />
-          ) : null}
+          ) : null} */}
         </>
       ) : null}
     </div>
