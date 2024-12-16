@@ -60,14 +60,7 @@ const Zoomland = () => {
     <>
       {/* <ambientLight intensity={1} /> */}
       {/* <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[2.5, 1.3, 1.3]} background={true} /> */}
-      <Environment
-        files={`${import.meta.env.BASE_URL || '/'}evening_road_01_puresky_1k.hdr`}
-        near={1}
-        far={1000}
-        background
-        blur={0.12}
-        inte
-      />
+      <Environment files={`evening_road_01_puresky_1k.hdr`} near={50} far={200} background backgroundBlurriness={0.1} />
 
       <PerspectiveCamera theatreKey="Camera" makeDefault fov={45} near={0.1} far={70} />
 

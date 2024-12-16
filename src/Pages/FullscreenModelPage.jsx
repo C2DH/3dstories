@@ -98,12 +98,11 @@ const FullscreenModelPage = ({ pathname }) => {
               // shadow-bias={-0.01}
             />
             <Environment
-              files={`${import.meta.env.BASE_URL || '/'}evening_road_01_puresky_1k.hdr`}
-              near={1}
-              far={1000}
+              files={`evening_road_01_puresky_1k.hdr`}
+              near={50}
+              far={200}
               background
-              blur={0.12}
-              inte
+              backgroundBlurriness={0.1}
             />
             <fog attach="fog" color="#e9c98f" near={2} far={20} />
             <ZoomlandModel position={[0, -1, 0]} scale={0.3} rotation={[0, 0, 0]} />
