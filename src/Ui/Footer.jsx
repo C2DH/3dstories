@@ -1,6 +1,5 @@
-import LogoFhp from '../Svg/LogoFhp'
-import LogoUcl from '../Svg/LogoUcl'
 import LogoUni from '../Svg/LogoUni'
+import LogoZoomland from '../Svg/LogoZoomland'
 import { useMediaQuery } from 'react-responsive'
 import { useEffect, useState } from 'react'
 import { useSpring, a } from '@react-spring/web'
@@ -33,35 +32,22 @@ const Footer = ({ scrollToTop, pathname }) => {
     }
   }, [isBottomVisible])
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (pathname === '/') {
-        document.querySelector('.footer').classList.add('opacity-100')
-      } else {
-        document.querySelector('.footer').classList.remove('opacity-100')
-      }
-    }, 1000)
-    return () => clearTimeout(timer)
-  }, [pathname])
-
   return (
     <a.footer
       style={stylesScrollUp}
       className={`footer max-w-full md:w-screen ${
-        pathname !== '/' && isVisibleFooter === false ? 'pointer-events-none' : 'pointer-events-auto'
-      } ${pathname === '/' ? 'relative' : 'fixed'} w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center justify-center`}
+        pathname === '/' && isVisibleFooter === false ? 'pointer-events-none' : 'pointer-events-auto'
+      } fixed w-screen bottom-0 left-0 flex flex-wrap p-5 sm:p-10 items-center justify-center`}
     >
-      {pathname !== '/' ? (
-        <div className="go-to-top z-1 fixed flex flex-col translate-y-[-10rem]">
-          <button type="button" aria-label="Go to top" onClick={scrollToTop}>
-            <CircleButton size={isBigScreen ? 120 : 60} width={isBigScreen ? 44 : 28} rotate={-90} />
-          </button>
-        </div>
-      ) : null}
+      <div className="go-to-top z-1 fixed flex flex-col translate-y-[-10rem]">
+        <button type="button" aria-label="Go to top" onClick={scrollToTop}>
+          <CircleButton size={isBigScreen ? 120 : 60} width={isBigScreen ? 44 : 28} rotate={-90} />
+        </button>
+      </div>
+
       <div className="flex z-40 flex-wrap w-screen justify-between ">
         <div className="footer-left my-3 justify-center md:justify-start flex-wrap flex flex-row items-center flex-grow">
-          <LogoFhp width={isBigScreen ? 160 : 90} />
-          <LogoUcl className={'ml-5'} width={isBigScreen ? 120 : 80} />
+          <LogoZoomland width={isBigScreen ? 140 : 90} />
           <LogoUni className={'ml-5'} width={isBigScreen ? 140 : 90} />
         </div>
         <div className="mt-3 md:mt-0 flex items-center footer-right justify-center md:justify-end flex-grow">
@@ -85,8 +71,7 @@ const Footer = ({ scrollToTop, pathname }) => {
         </div>
       </div>
       <span className="mt-3  flex text-xs grow md:text-right text-center justify-center">
-        © University of Applied Arts Potsdam (FHP) & Centre for Contemporary and Digital History Luxembourg (C²DH),
-        2024.
+        © Centre for Contemporary and Digital History Luxembourg (C²DH), 2024.
       </span>
     </a.footer>
   )
