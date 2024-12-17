@@ -12,7 +12,7 @@ const Header = ({ scrollToTop }) => {
         style={{ width: '100%' }}
       >
         <Link to="/" aria-label="Link to homepage">
-          <Logo3dStories width={isBigScreen ? 80 : 60} scrollToTop={scrollToTop} />
+          <Logo3dStories color={'var(--white)'} width={isBigScreen ? 80 : 60} scrollToTop={scrollToTop} />
         </Link>
         <MenuCloseButton />
       </header>

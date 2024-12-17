@@ -43,9 +43,9 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal, sc
     }
   }
 
-  function flashionPlatform() {
-    window.open('https://refareader.fh-potsdam.de', '_blank')
-  }
+  // function flashionPlatform() {
+  //   window.open('https://refareader.fh-potsdam.de', '_blank')
+  // }
   function onClickHandler(e) {
     if (e.target.hasAttribute('data-href')) {
       const href = e.target.getAttribute('data-href')
@@ -65,21 +65,19 @@ const Feature = ({ title, description, ref, i, lastItem, contents, openModal, sc
           <div className="flex flex-col">
             <h1 className="" ref={ref} dangerouslySetInnerHTML={{ __html: title }}></h1>
             <div className="intro-buttons">
-              {pathname !== '/' ? (
-                <>
-                  <Button
-                    onClick={scrollToInnerHeight}
-                    className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
-                    value="Read model's story"
-                  />
-                  <Button
-                    onClick={fullscreenMode}
-                    type="secondary"
-                    className="mt-5 pointer-events-auto w-full md:w-auto"
-                    value="Explore model"
-                  />
-                </>
-              ) : null}
+              <>
+                <Button
+                  onClick={scrollToInnerHeight}
+                  className="mt-5 w-full md:w-auto sm:mr-0 md:mr-3 xl2:mr-3 pointer-events-auto"
+                  value="Read story"
+                />
+                <Button
+                  onClick={fullscreenMode}
+                  type="secondary"
+                  className="mt-5 pointer-events-auto w-full md:w-auto"
+                  value="Explore model"
+                />
+              </>
             </div>
           </div>
         </div>

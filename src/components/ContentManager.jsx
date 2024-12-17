@@ -1,7 +1,4 @@
-import RobeFrancaiseContent from '../Data/robeFrancaise.json'
-import ArmorContent from '../Data/armor.json'
-import GreekStyleDressContent from '../Data/greekStyleDress.json'
-import DoubletContent from '../Data/doublet.json'
+import zoomlandContent from '../Data/zoomland.json'
 import { useLocation } from 'react-router-dom'
 import ScrollManager, { useScrollStore } from './ScrollManager'
 import Feature from '../Ui/Feature'
@@ -12,16 +9,10 @@ import ScrollDownIndicator from '../Ui/ScrollDownIndicator'
 // import { modalVisible } from '../GlobalState'
 // import { useAtom } from 'jotai'
 
-const ZoomlandRoute = '/zoomland'
-const ArmorRoute = '/armor'
-const DoubletRoute = '/doublet'
-const GreekStyleDressRoute = '/greek_style_dress'
+const ZoomlandRoute = '/'
 
 const AvailableContents = {
-  [ZoomlandRoute]: RobeFrancaiseContent,
-  [ArmorRoute]: ArmorContent,
-  [DoubletRoute]: DoubletContent,
-  [GreekStyleDressRoute]: GreekStyleDressContent
+  [ZoomlandRoute]: zoomlandContent
 }
 const ContentManager = ({ openModal, scrollToTop }) => {
   const bottomRef = useRef(null)
@@ -95,7 +86,7 @@ const ContentManager = ({ openModal, scrollToTop }) => {
     <>
       <a.div
         style={styles}
-        className={`ContentManager ${displayIndicator === true ? 'display-indicator' : ''} ${pathname === '/' ? 'index-page' : ''} flex flex-col items-center fixed`}
+        className={`ContentManager ${displayIndicator === true ? 'display-indicator' : ''} flex flex-col items-center fixed`}
       >
         <div className="absolute w-screen h-screen flex items-end pointer-events-none">
           <ScrollDownIndicator className={'mb-10'}></ScrollDownIndicator>

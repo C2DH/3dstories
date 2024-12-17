@@ -296,7 +296,7 @@ const ZoomlandModelInstances = ({ position, rotation, scale, instances, ...props
         <instances.Tree1 />
         <instances.Tree2 />
       </group>
-      <group position={[-3.249, 0.343, -5.157]} rotation={[-1.197, 1.546, 1.183]} scale={0.311}>
+      {/* <group position={[-3.249, 0.343, -5.157]} rotation={[-1.197, 1.546, 1.183]} scale={0.311}>
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
@@ -305,22 +305,22 @@ const ZoomlandModelInstances = ({ position, rotation, scale, instances, ...props
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
-      </group>
+      </group> */}
       <group position={[-0.788, 0.122, -2.057]} rotation={[-1.358, 1.5, 1.378]} scale={0.142}>
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
       </group>
-      <group position={[-0.607, 1.755, -6.909]} rotation={[1.083, 1.463, -1.102]} scale={0.104}>
+      {/* <group position={[-0.607, 1.755, -6.909]} rotation={[1.083, 1.463, -1.102]} scale={0.104}>
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
-      </group>
-      <group position={[-0.34, 1.693, -6.933]} rotation={[-1.715, 1.383, 1.744]} scale={0.115}>
+      </group> */}
+      {/* <group position={[-0.34, 1.693, -6.933]} rotation={[-1.715, 1.383, 1.744]} scale={0.115}>
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
-      </group>
+      </group> */}
       <group position={[0.099, 1.601, -5.847]} rotation={[-1.855, 1.43, 1.895]} scale={0.081}>
         <instances.Tree />
         <instances.Tree1 />
@@ -366,11 +366,11 @@ const ZoomlandModelInstances = ({ position, rotation, scale, instances, ...props
         <instances.Tree1 />
         <instances.Tree2 />
       </group>
-      <group position={[2.256, 1.233, -5.805]} rotation={[-1.435, 1.541, 1.42]} scale={0.199}>
+      {/* <group position={[2.256, 1.233, -5.805]} rotation={[-1.435, 1.541, 1.42]} scale={0.199}>
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
-      </group>
+      </group> */}
       <group position={[2.522, 1.191, 3.482]} rotation={[1.059, 1.489, -1.022]} scale={0.111}>
         <instances.Tree />
         <instances.Tree1 />
@@ -576,7 +576,7 @@ const ZoomlandModelInstances = ({ position, rotation, scale, instances, ...props
         <instances.Tree1 />
         <instances.Tree2 />
       </group>
-      <group position={[-0.533, 1.643, -7.815]} rotation={[-2.424, 1.491, 2.383]} scale={0.098}>
+      {/* <group position={[-0.533, 1.643, -7.815]} rotation={[-2.424, 1.491, 2.383]} scale={0.098}>
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
@@ -585,7 +585,7 @@ const ZoomlandModelInstances = ({ position, rotation, scale, instances, ...props
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
-      </group>
+      </group> */}
       <group position={[0.447, 0.17, -0.575]} rotation={[2.334, 1.499, -2.366]} scale={0.106}>
         <instances.Tree />
         <instances.Tree1 />
@@ -596,7 +596,7 @@ const ZoomlandModelInstances = ({ position, rotation, scale, instances, ...props
         <instances.Tree1 />
         <instances.Tree2 />
       </group>
-      <group position={[0.905, 1.354, -6.752]} rotation={[1.802, 1.49, -1.804]} scale={0.149}>
+      {/* <group position={[0.905, 1.354, -6.752]} rotation={[1.802, 1.49, -1.804]} scale={0.149}>
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
@@ -605,12 +605,12 @@ const ZoomlandModelInstances = ({ position, rotation, scale, instances, ...props
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
-      </group>
-      <group position={[1.187, 1.306, -6.873]} rotation={[-1.871, 1.361, 1.874]} scale={0.166}>
+      </group> */}
+      {/* <group position={[1.187, 1.306, -6.873]} rotation={[-1.871, 1.361, 1.874]} scale={0.166}>
         <instances.Tree />
         <instances.Tree1 />
         <instances.Tree2 />
-      </group>
+      </group> */}
       <group position={[1.606, 1.09, 5.766]} rotation={[-1.895, 1.409, 1.848]} scale={0.103}>
         <instances.Tree />
         <instances.Tree1 />

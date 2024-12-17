@@ -5,7 +5,7 @@
 :root {
   --dark: #1b1a1d;
   --white: #ffffff;
-  --accent: #e14b5a;
+  --accent: #e5d92d;
   --active: #fd5982;
   --bg: #afafaf;
   --dark-rgb: 27, 26, 29;
@@ -57,10 +57,11 @@ body {
 }
 
 h1 {
-  font-family: 'stardom';
+  font-family: 'satoshi';
   font-size: 4.375rem;
-  line-height: 5rem;
-  text-shadow: 2px 2px 10px rgba(var(--dark-rgb), 0.7);
+  line-height: 4.5rem;
+  font-weight: 700;
+  /* text-shadow: 2px 2px 10px rgba(var(--dark-rgb), 0.7); */
 }
 
 @media (max-width: 1280px) {
@@ -78,7 +79,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'stardom';
+  font-family: 'satoshi';
   font-size: 2.25rem;
   line-height: 2.5rem;
 }

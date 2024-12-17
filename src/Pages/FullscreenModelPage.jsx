@@ -5,12 +5,7 @@ import { Environment, OrbitControls } from '@react-three/drei'
 import Background from '../Ui/Background'
 import { useMediaQuery } from 'react-responsive'
 import ZoomlandModel from '../modelComps/ZoomlandModel'
-import GreekStyleDressModel from '../modelComps/GreekStyleDressModel'
-import SpencerJacketModel from '../modelComps/SpencerJacketModel'
 import * as THREE from 'three'
-import InnerDoubletModel from '../modelComps/InnerDoubletModel'
-import OuterDoubletModel from '../modelComps/OuterDoubletModel'
-import ArmorModel from '../modelComps/ArmorModel'
 import CloseButton from '../Ui/CloseButton'
 import { useEffect } from 'react'
 import { useSpring, a, config } from '@react-spring/web'
@@ -65,13 +60,13 @@ const FullscreenModelPage = ({ pathname }) => {
         shadows
       >
         {/* <ambientLight intensity={1} /> */}
-        {pathname !== '/zoomland' ? (
+        {pathname !== '/' ? (
           <>
             <OrbitControls autoRotate={false} autoRotateSpeed={0.5} enableDamping={true} />
             <Environment preset="studio" environmentIntensity={0.2} environmentRotation={[1, 1, 0]} />
           </>
         ) : null}
-        {pathname === '/zoomland' && showFullscreenMode === true ? (
+        {pathname === '/' && showFullscreenMode === true ? (
           <>
             <OrbitControls
               autoRotate={false}
@@ -84,7 +79,7 @@ const FullscreenModelPage = ({ pathname }) => {
               maxPolarAngle={Math.PI - Math.PI / 2}
             />
             <directionalLight
-              intensity={1}
+              intensity={2.5}
               castShadow
               color={'0xffe6b3'}
               position={[40, 40, 30]}
@@ -102,36 +97,16 @@ const FullscreenModelPage = ({ pathname }) => {
               near={50}
               far={200}
               background
+              environmentIntensity={1.3}
               backgroundBlurriness={0.1}
+              environmentRotation={[-1.3, 0, 0]}
+              backgroundRotation={[0, 1, -2.5]}
             />
             <fog attach="fog" color="#e9c98f" near={2} far={20} />
             <ZoomlandModel position={[0, -1, 0]} scale={0.3} rotation={[0, 0, 0]} />
             <Lumberjack scale={0.001} position={[-0.15, -0.93, 1.4]} />
             <Annotation id={11} position={[0, 1.15, -2.6]} />
             <Annotation id={6} position={[-0.15, -0.65, 1.55]} />
-          </>
-        ) : null}
-        {pathname === '/armor' ? (
-          <>
-            <ArmorModel position={[0, 0.2, 0]} scale={5} rotation={0} />
-            <Annotation id={6} position={[-0.11, 0.5, 0.8]} />
-            <Annotation id={14} position={[-0.1, 0, 0.95]} />
-          </>
-        ) : null}
-        {pathname === '/greek_style_dress' ? (
-          <>
-            <GreekStyleDressModel position={[0, -2.2, 0.5]} rotation={0} />
-            <SpencerJacketModel position={[0, 1, -0.5]} rotation={1.4} />
-            <Annotation id={6} position={[-0.11, 1.4, 1.4]} />
-          </>
-        ) : null}
-
-        {pathname === '/doublet' ? (
-          <>
-            <InnerDoubletModel position={[0, -0.5, -1.2]} rotation={1.4} />
-            <OuterDoubletModel position={[0, -0.5, 1.2]} rotation={0} />
-            <Annotation id={9} position={[1.6, 0.5, 1.7]} />
-            <Annotation id={10} position={[-0.1, 1, 0.5]} />
           </>
         ) : null}
       </Canvas>

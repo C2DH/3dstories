@@ -9,14 +9,10 @@ import ContentManager from './components/ContentManager'
 import ViewportManager from './components/ViewportManager'
 import MenuFullPage from './Ui/MenuFullPage'
 import ZoomlandPage from './Pages/ZoomlandPage'
-import GreekStyleDressPage from './Pages/GreekStyleDressPage'
 import { useLocation } from 'react-router-dom'
-import DoubletPage from './Pages/DoubletPage'
 import ModalWindow from './Ui/ModalWindow'
 import Images from './Data/images.json'
 import { AnimatePresence } from 'framer-motion'
-import ArmorPage from './Pages/ArmorPage'
-import IntroPage from './Pages/IntroPage'
 import Preloader from './Ui/Preloader'
 import { useEffect, useRef } from 'react'
 import useStore from './GlobalState'
@@ -68,19 +64,12 @@ function App() {
       <FullscreenModelPage pathname={pathname} />
       <AnimatePresence mode="wait">
         <Routes location={location} key={pathname} pathname={pathname}>
-          <Route path="/" element={<IntroPage pathname={pathname} />}></Route>
-          <Route path="/zoomland" element={<ZoomlandPage pathname={pathname} scrollToTopEf={scrollToTopEf} />}></Route>
-          <Route path="/armor" element={<ArmorPage pathname={pathname} />}></Route>
-          <Route path="/doublet" element={<DoubletPage pathname={pathname} />}></Route>
-          <Route path="/greek_style_dress" element={<GreekStyleDressPage pathname={pathname} />}></Route>
+          <Route path="/" element={<ZoomlandPage pathname={pathname} scrollToTopEf={scrollToTopEf} />}></Route>
         </Routes>
-        {pathname === '/' ? null : (
-          <ContentManager openModal={openModal} isModalVisible={isModalVisible} key="sss-robe" />
-        )}
+        <ContentManager openModal={openModal} isModalVisible={isModalVisible} key="zoomland" />
         <ViewportManager />
       </AnimatePresence>
       <Footer scrollToTop={scrollToTop} pathname={pathname} />
-      <VideoBackground pathname={pathname} />
       <Background pathname={pathname} showFullscreenMode={true} />
     </>
   )

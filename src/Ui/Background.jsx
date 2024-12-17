@@ -1,29 +1,18 @@
 import './Background.css'
 import { useEffect, useRef, useState } from 'react'
 import { useScrollStore } from '../components/ScrollManager'
-import RobeFrancaiseContent from '../Data/robeFrancaise.json'
-import GreekStyleDressContent from '../Data/greekStyleDress.json'
-import ArmorContent from '../Data/armor.json'
-import DoubletContent from '../Data/doublet.json'
-import IntroContent from '../Data/introduction.json'
+import zoomlandRoute from '../Data/zoomland.json'
+
 const Background = ({ pathname, showFullscreenMode }) => {
   const ratioRef = useRef(useScrollStore.getState().scrollRatio)
   const pageRef = useRef(useScrollStore.getState().page)
   const totalPagesRef = useRef(0)
   const [backgroundClass, setBackgroundClass] = useState('')
 
-  const IntroRoute = '/'
-  const ZoomlandRoute = '/zoomland'
-  const ArmorRoute = '/armor'
-  const DoubletRoute = '/doublet'
-  const GreekStyleDressRoute = '/greek_style_dress'
+  const ZoomlandRoute = '/'
 
   const AvailableContents = {
-    [ZoomlandRoute]: RobeFrancaiseContent,
-    [ArmorRoute]: ArmorContent,
-    [DoubletRoute]: DoubletContent,
-    [GreekStyleDressRoute]: GreekStyleDressContent,
-    [IntroRoute]: IntroContent
+    [ZoomlandRoute]: zoomlandRoute
   }
   const contents = AvailableContents[pathname]
 
